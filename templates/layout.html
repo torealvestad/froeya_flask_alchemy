@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Frøya's web app!</title>
+        <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }}>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+      {% set active_page = active_page|default('home') -%}
+
+      {% set navigation_bar= [
+          ('home', 'Home'),
+          ('activities', 'My activities'),
+          ('friends', 'My friends'),
+          ('music', 'My music'),
+          ('birthday', 'My birthday'),
+          ('my_memoirs', 'My memoirs'),
+          ('family', 'My family')
+      ] -%}
+
+      <ul class="nav nav-tabs">
+      {% for id, caption in navigation_bar %}
+            <li class="nav-item">
+                <a {% if id == active_page %}
+                      class="nav-link active"
+                  {% else %}
+                      class="nav-link"
+                  {% endif %}
+                 href="{{ url_for(id) }}"> {{ caption }}</a>
+            </li>
+      {% endfor %}
+      </ul>
+
+        <h1>{% block heading %}{% endblock %}</h1>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

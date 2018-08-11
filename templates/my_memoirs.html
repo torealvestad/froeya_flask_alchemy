@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% set active_page = "my_memoirs" %}
+
+{% block heading %}
+  Frøya's memoirs
+{% endblock %}
+
+{% block body %}
+    <ul>
+      {% for story in memoirs %}
+        <li> {{ story }} </li>
+      {% endfor %}
+    <ul>
+
+  <form action="{{ url_for('my_memoirs') }}" method="POST">
+      <input type="text" name="story" placeholder="Write a story">
+      <button> Submit </button>
+
+{% endblock %}

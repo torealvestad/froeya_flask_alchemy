@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% set active_page = "birthday" %}
+
+{% block heading %}
+  Frøyas web application
+{% endblock %}
+
+{% block body %}
+<p>  </p>
+
+    {% if my_birthday %}
+        <p> It's my birthday!! </p>
+        <img src="https://lh3.googleusercontent.com/tJoJBNBvv_NKmqtceqNOaTm_N2JEKIHLPctISaXOPWp-mRnOVxAABBpSZfqTLHmih4WVK7qJ2-JVDqbS5R9uzbaSGW_Inj8EoMznOhtd9XeI3OfR00TJm3hTstWG1l2Tjzg7Xuwni0M=w2400" width="50%"/>
+    {% else %}
+        <p> It's not my birthday </p>
+        <img src="https://lh3.googleusercontent.com/kYnrO147qSapw2Ccm5KsIIXl-0nt6dK4AhSwLaMSxMzsuycxTGOPtIxmR33ljuRS5znySuEOAOB53-t0aUgJ8HwN-zy9OLgLTg-6m-py3tjrbSySDcDxB6Zi1IBD5xkFSnHRh4zI_SY=w2400" width="50%"/>
+
+
+
+    {% endif %}
+
+    <p> Google photos can be embedded by getting a link at this webpage https://www.labnol.org/internet/embed-google-photos-in-website/29194/ </p>
+
+
+{% endblock %}
