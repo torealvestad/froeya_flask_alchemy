@@ -1,10 +1,22 @@
 import os
+import datetime
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class Memoirs(db.Model):
+    __tablename__="memoirs"
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False)
+    title = db.Column(db.String, nullable=False)
+    story = db.Column(db.String, nullable=False)
+    picture = db.Column(db.String, nullable=True)
+
+    def add_memoir(self, title, story):
+        date = datetime.datetime.now()
+        m = Memoirs(date=date, title=title, story=story)
 
 class Flight(db.Model):
     __tablename__ = "flights"
